@@ -9,7 +9,7 @@ fi
 
 # Function to check the status of the last executed command
 StatusCheck() {
-  if [ $1 -ne 0 ]; then
+  if [ $1 -eq 0 ]; then
     echo -e "Status = \e[32mSUCCESS\e[0m"
   else
     echo -e "Status = \e[31mFAILURE\e[0m"
