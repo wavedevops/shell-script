@@ -78,8 +78,8 @@ StatusCheck() {
 LOGFILE=/tmp/mysql.log
 
 # Install MySQL and check the status
-echo "Installing MySQL"
-dnf install mysql -y &>>$LOGFILE
+echo "Installing nginx"
+dnf install nginx -y &>>$LOGFILE
 StatusCheck $?
 
 # Sleep for 5 seconds
@@ -87,6 +87,6 @@ sleep 5
 echo -e "Status = \e[32mSUCCESS\e[0m"
 
 # Intentionally incorrect command to demonstrate FAILURE status
-echo "Removing MySQL (with incorrect command)"
-yum remove mqllll -y #&>>$LOGFILE
+echo "Removing nginx (with incorrect command)"
+dnf remove ngiv -y #&>>$LOGFILE
 StatusCheck $?
