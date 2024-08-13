@@ -31,5 +31,5 @@ StatusCheck $?
 
 # Remove MySQL and check the status
 echo "Removing nginx "
-yum remove nginx  &>>$LOGFILE
+yum remove nginx -h &>>$LOGFILE
 StatusCheck $?
