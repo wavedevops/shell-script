@@ -55,8 +55,7 @@
 
 
 
-#!/bin/bash
-
+LOG_FILE=/tmp/frontend
 # Check if the script is being run as root
 ID=$(id -u)
 if [ $ID -ne 0 ]; then
