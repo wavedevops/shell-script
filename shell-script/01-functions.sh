@@ -55,6 +55,8 @@
 
 
 
+#!/bin/bash
+
 # Check if the script is being run as root
 ID=$(id -u)
 if [ $ID -ne 0 ]; then
@@ -73,16 +75,16 @@ StatusCheck() {
 }
 
 # Define log file location
-LOGFILE=/tmp/hari.log
+LOGFILE=/tmp/mysql.log
+
 # Install MySQL and check the status
 echo "Installing MySQL"
 dnf install mysql -y &>>$LOGFILE
 StatusCheck $?
 
-
-echo "sleep 5 seconds"
+# Sleep for 5 seconds
 sleep 5
-StatusCheck $?
+echo -e "Status = \e[32mSUCCESS\e[0m"
 
 # Intentionally incorrect command to demonstrate FAILURE status
 echo "Removing MySQL (with incorrect command)"
