@@ -15,13 +15,13 @@ StatusCheck() {
   fi
 }
 
-SCRIPT_NAME=$(echo $0 | cut -d "." -f )
-LOGFILE=/tmp/$SCRIPT_NAME.log
+#SCRIPT_NAME=$(echo $0 | cut -d "." -f )
+LOGFILE=/tmp/mysql.log
 
 echo "installing mysql"
 dnf install mysql -y &>>$LOGFILE
 VALIDAATE $?
 
 echo "removeing mysql"
-yum remove mysqll -y  &>>$LOGFILE
+yum remove mysql -y  &>>$LOGFILE
 StatusCheck $?
