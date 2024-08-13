@@ -20,9 +20,9 @@ LOGFILE=/tmp/mysql.log
 
 echo "installing mysql"
 dnf install mysql -y &>>$LOGFILE
-StatusCheck$?
+StatusCheck $?
 
 
 echo "Removing MySQL"
-yum remove mysql -y &>>$LOGFILE
+yum remove mysqlll -y &>>$LOGFILE
 StatusCheck $?
