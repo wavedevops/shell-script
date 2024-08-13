@@ -86,6 +86,6 @@ StatusCheck $?
 
 
 
-echo Installing Nginx
-dnf remove nginx -y &>>$LOG_FILE
-StatusCheck $?
+#echo Installing Nginx
+#dnf remove nginx -y &>>$LOG_FILE
+#StatusCheck $?
