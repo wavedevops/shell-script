@@ -21,11 +21,15 @@ StatusCheck() {
 LOGFILE=/tmp/mysql.log
 
 # Install MySQL and check the status
-echo "Installing MySQL"
-dnf install mysql -y &>>$LOGFILE
+echo "Installing nginx"
+dnf install nginx -y &>>$LOGFILE
+StatusCheck $?
+
+echo "sleep 30 seconds"
+sleep 30
 StatusCheck $?
 
 # Remove MySQL and check the status
-echo "Removing MySQL"
-yufm remove mysqlll -y &>>$LOGFILE
+echo "Removing nginx "
+yum remove nginx -y &>>$LOGFILE
 StatusCheck $?
