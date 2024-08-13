@@ -34,11 +34,11 @@ else
 fi
 
 echo "installing git"
-dnf install git -y &>>$LOGFILE
+dnf install mysql -y &>>$LOGFILE
 VALIDAATE $?
 
 echo "removeing git"
-yum remove git -y  &>>$LOGFILE
+yum remove mysql -y  &>>$LOGFILE
 VALIDAATE $?
 
 }
