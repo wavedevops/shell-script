@@ -23,5 +23,5 @@ dnf install mysql -y &>>$LOGFILE
 StatusCheck $?
 
 echo "removeing mysql"
-yum remove mysql -y  &>>$LOGFILE
+yum remove mysqlllD -y  &>>$LOGFILE
 StatusCheck $?
