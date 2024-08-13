@@ -74,7 +74,7 @@ StatusCheck() {
 }
 
 echo Installing Nginx
-yum instalal nginx -y &>>$LOG_FILE
+dnf instalal nginxv -y &>>$LOG_FILE
 StatusCheck $?
 
 
