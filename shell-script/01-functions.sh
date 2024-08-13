@@ -38,7 +38,5 @@ dnf install mysql -y &>>$LOGFILE
 VALIDAATE $?
 
 echo "removeing git"
-yum remove mysql -y  &>>$LOGFILE
+yum remove mysqll -y  &>>$LOGFILE
 VALIDAATE $?
-
-}
