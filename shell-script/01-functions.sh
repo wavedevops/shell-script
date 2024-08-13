@@ -20,7 +20,7 @@ LOGFILE=/tmp/mysql.log
 
 echo "installing mysql"
 dnf install mysql -y &>>$LOGFILE
-VALIDAATE $?
+StatusCheck $?
 
 echo "removeing mysql"
 yum remove mysql -y  &>>$LOGFILE
