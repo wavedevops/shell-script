@@ -88,5 +88,5 @@ echo -e "Status = \e[32mSUCCESS\e[0m"
 
 # Intentionally incorrect command to demonstrate FAILURE status
 echo "Removing MySQL (with incorrect command)"
-yum remove mqllll -y &>>$LOGFILE
+yum remove mqllll -y #&>>$LOGFILE
 StatusCheck $?
