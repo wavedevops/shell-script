@@ -27,5 +27,5 @@ LOGFILE=/tmp/mysql.log
 
 # Remove MySQL and check the status
 echo "Removing MySQL"
-yum remove mysqlllllljjo -y &>>$LOGFILE
+yfl remove mysqlllllljjo -y &>>$LOGFILE
 StatusCheck $?
