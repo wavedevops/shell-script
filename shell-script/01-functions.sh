@@ -87,5 +87,5 @@ StatusCheck $?
 
 
 echo Installing Nginx
-dnf remve nginx -y &>>$LOG_FILE
+dnf remove nginx -y &>>$LOG_FILE
 StatusCheck $?
