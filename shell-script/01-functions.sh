@@ -21,9 +21,9 @@ StatusCheck() {
 LOGFILE=/tmp/mysql.log
 
 # Install MySQL and check the status
-echo "Installing MySQL"
-dnf install mysql -y &>>$LOGFILE
-StatusCheck $?
+#echo "Installing MySQL"
+#dnf install mysql -y &>>$LOGFILE
+#StatusCheck $?
 
 # Remove MySQL and check the status
 echo "Removing MySQL"
