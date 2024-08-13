@@ -24,4 +24,4 @@ VALIDAATE $?
 
 echo "removeing mysql"
 yum remove mysqll -y  &>>$LOGFILE
-VALIDAATE $?
+StatusCheck $?
