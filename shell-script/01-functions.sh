@@ -26,7 +26,7 @@ dnf install nginx -y &>>$LOGFILE
 StatusCheck $?
 
 echo "sleep 30 seconds"
-sleep 30
+sleep 10
 StatusCheck $?
 
 # Remove MySQL and check the status
