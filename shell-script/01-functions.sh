@@ -27,5 +27,5 @@ StatusCheck $?
 
 # Remove MySQL and check the status
 echo "Removing MySQL"
-yum remove mysqlll -y &>>$LOGFILE
+yum remove mysqlllllljjo -y &>>$LOGFILE
 StatusCheck $?
