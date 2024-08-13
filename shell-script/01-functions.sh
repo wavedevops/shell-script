@@ -16,7 +16,7 @@ StatusCheck() {
 }
 
 SCRIPT_NAME=$(echo $0 | cut -d "." -f )
-LOGFILE=/tmp/$SCRIP_NAME.log
+LOGFILE=/tmp/$SCRIPT_NAME.log
 
 echo "installing mysql"
 dnf install mysql -y &>>$LOGFILE
