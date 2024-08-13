@@ -77,10 +77,7 @@ StatusCheck() {
 # Define log file location
 LOGFILE=/tmp/mysql.log
 
-# Install MySQL and check the status
-echo "Installing nginx"
-dnf install nginx -y &>>$LOGFILE
-StatusCheck $?
+
 
 # Sleep for 5 seconds
 sleep 5
@@ -89,4 +86,9 @@ echo -e "Status = \e[32mSUCCESS\e[0m"
 # Intentionally incorrect command to demonstrate FAILURE status
 echo "Removing nginx (with incorrect command)"
 dnf remove ngiv -y #&>>$LOGFILE
+StatusCheck $?
+
+# Install MySQL and check the status
+echo "Installing nginx"
+dnf install nginx -y &>>$LOGFILE
 StatusCheck $?
