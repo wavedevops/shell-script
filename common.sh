@@ -10,14 +10,9 @@ else
   echo "You are super user."
 fi
 
-# Get the current timestamp in the format YYYY-MM-DD-HH-MM-SS
 TIMESTAMP=$(date +%F-%H-%M-%S)
-
-# Get the script name without the extension
-SCRIPT_NAME=$(echo "$0" | cut -d "." -f1)
-
-# Set the log file path
-LOGFILE=/tmp/$SCRIPT_NAME.log
+SCRIPT_NAME=$(echo $0 | cut -d "." -f1)
+LOGFILE=/tmp/$SCRIPT_NAME-$TIMESTAMP.log
 
 # Define color codes for output
 R="\e[31m"   # Red
@@ -37,3 +32,4 @@ VALIDATE(){
     echo -e "$2...$G SUCCESS $N"
   fi
 }
+
