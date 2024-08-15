@@ -2,14 +2,14 @@
 
 source common.sh
 
-dnf module disable nodejs -y
-VALIDATE $? "disable nodejs version 16" &>>LOGFILE
+dnf module disable nodejs -y &>>LOGFILE
+VALIDATE $? "disable nodejs version 16"
 
-dnf module enable nodejs:20 -y
-VALIDATE $? "enable nodejs version 20" &>>LOGFILE
+dnf module enable nodejs:20 -y &>>LOGFILE
+VALIDATE $? "enable nodejs version 20"
 
-dnf install nodejs -y
-VALIDATE $? "install nodejs" &>>LOGFILE
+dnf install nodejs -y &>>LOGFILE
+VALIDATE $? "install nodejs"
 
 
 id expense &>>$LOGFILE
