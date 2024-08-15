@@ -5,6 +5,8 @@ source common.sh
 dnf install nginx -y &>>$LOGFILE
 VALIDATE $? "install nginx"
 
+systemctl enable nginx &>>$LOGFILE
+VALIDATE $? "enable nginx"
 
 systemctl start nginx &>>$LOGFILE
 VALIDATE $? "start nginx"
