@@ -27,10 +27,10 @@ VALIDATE $? "Creating app directory"
 curl -o /tmp/backend.zip https://expense-builds.s3.us-east-1.amazonaws.com/expense-backend-v2.zip &>>$LOGFILE
 VALIDATE $? "Downloading backend dependencies"
 
-cd /app  &>>$LOGFILE
-rm-rf /app/* &>>$LOGFILE
+cd /app
+rm -rf /app/*
 unzip /tmp/backend.zip &>>$LOGFILE
-VALIDATE $? "UNZIP backend dependencies"
+VALIDATE $? "Extracted backend code"
 
 npm install &>>$LOGFILE
 VALIDATE $? "npm install"
