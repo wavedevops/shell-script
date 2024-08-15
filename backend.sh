@@ -45,7 +45,7 @@ VALIDATE $? "daemon reload"
 dnf install mysql -y &>>$LOGFILE
 VALIDATE $? "install mysql client"
 
-mysql -h 172.31.94.9 -uroot -pExpenseApp@1 < /app/schema/backend.sql &>>$LOGFILE
+mysql -h 172.31.85.32 -uroot -pExpenseApp@1 < /app/schema/backend.sql &>>$LOGFILE
 VALIDATE $? "send schema from mysql client"
 
 
