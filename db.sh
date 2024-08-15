@@ -2,6 +2,8 @@
 
 source common.sh
 
+mysql_root_password=ExpenseApp@1
+
 dnf install mysql-server -y &>>$LOGFILE
 VALIDATE $? "Installing MySQL Server"
 
