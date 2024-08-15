@@ -1,16 +1,30 @@
 #!/bin/bash
 
+# Get the current user ID
 USERID=$(id -u)
-TIMESTAMP=$(date +%F-%H-%M-%S)
-SCRIPT_NAME=$(echo $0 | cut -d "." -f1)
-LOGFILE=/tmp/$SCRIPT_NAME-$TIMESTAMP.log
-R="\e[31m"
-G="\e[32m"
-Y="\e[33m"
-N="\e[0m"
 
+# Get the current timestamp in the format YYYY-MM-DD-HH-MM-SS
+TIMESTAMP=$(date +%F-%H-%M-%S)
+
+# Get the script name without the extension
+SCRIPT_NAME=$(basename "$0" | cut -d "." -f1)
+
+# Set the log file path
+LOGFILE=/tmp/$SCRIPT_NAME-$TIMESTAMP.log
+
+# Define color codes for output
+R="\e[31m"   # Red
+G="\e[32m"   # Green
+Y="\e[33m"   # Yellow
+N="\e[0m"    # Reset color (No color)
+
+# Now you can use these variables and color codes in your script
+
+
+
+# Define the VALIDATE function
 VALIDATE(){
-  if [ $1 -ne 0 ]; then
+  if [ "$1" -ne 0 ]; then
     echo -e "$2...$R FAILURE $N"
     exit 1
   else
@@ -18,9 +32,10 @@ VALIDATE(){
   fi
 }
 
-if [ $USERID -ne 0 ]; then
+# Check if the user is root (user ID 0)
+if [ "$USERID" -ne 0 ]; then
   echo "Please run this script with root access."
-  exit 1 # manually exit if error comes.
+  exit 1
 else
   echo "You are super user."
 fi
