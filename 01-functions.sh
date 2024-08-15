@@ -84,8 +84,6 @@ systemctl enable nginx &>>$LOG_FILE
 systemctl restart nginx &>>$LOG_FILE
 StatusCheck $?
 
-
-
 #echo Installing Nginx
 #dnf remove nginx -y &>>$LOG_FILE
 #StatusCheck $?
