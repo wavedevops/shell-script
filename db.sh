@@ -17,4 +17,5 @@ if [ $? -eq 0 ]; then
   echo "mysql already exists"
 else
   mysql_secure_installation --set-root-pass ExpenseApp@1
+  VALIDATE $? "setup mysql root password"
 fi
