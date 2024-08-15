@@ -29,7 +29,7 @@ systemctl enable nginx &>>$LOGFILE
 systemctl restart nginx &>>$LOGFILE
 VALIDATE $? "Restarted nginx"
 
-systemctl status nginx
+#systemctl status nginx
 
 dnf install nginx -y &>>$LOGFILE
 VALIDATE $? "Installing nginx"
