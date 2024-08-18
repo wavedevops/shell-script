@@ -2,13 +2,13 @@
 
 source common.sh
 
-SOURCE_DIRECTORY=/tmp/app-log
+SOURCE_DIRECTORY=/tmp/app-logs
 
 if [ -d $SOURCE_DIRECTORY ]
 then
-  echo -e " $G source directory exists. $N"
+  echo -e " $G source directory exists. $N "
 else
-  echo -e "$R $SOURCE_DIRECTORY directory doesn't exits $N"
+  echo -e "$R $SOURCE_DIRECTORY directory doesn't exits $N "
   exit 1
 fi
 
