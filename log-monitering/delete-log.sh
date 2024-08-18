@@ -3,12 +3,12 @@
 source common.sh
 
 
-SOURCE_DIRECTORY=/tmp/app-logs
+SOURCE_DIRECTORY=/tmp/app-logsdf
 if [ -d $SOURCE_DIRECTORY ]
 then
-  echo -e " $G source directory exists $N "
+  echo -e " $G source directory exists. $N "
 else
-  echo -e "$R source directory doesn't exits $N "
+  echo -e "$R $SOURCE_DIRECTORY directory doesn't exits $N "
   exit 1
 fi
 FILES=$( find "$SOURCE_DIRECTORY" -name '*.log' -mtime +14)
