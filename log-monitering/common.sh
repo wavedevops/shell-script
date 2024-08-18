@@ -21,9 +21,9 @@ fi
 
 if [ $USERID -ne 0 ]
 then
-  echo " $R Please run this script with root access. $N"
+  echo -e " $R Please run this script with root access. $N"
   exit 1 # manually exit if error comes.
 else
-  echo " $S You are super user. $N "
+  echo -e " $S You are super user. $N "
 fi
 
