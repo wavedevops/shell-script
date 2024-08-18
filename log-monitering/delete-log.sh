@@ -20,7 +20,8 @@ do
   rm -rf $line
 done <<< $FILES
 
-
+# only for understanding
+echo $FILES
 
 #touch -d "2024-08-01 00:00:00" backend.log
 #touch -d "2024-08-01 00:00:00" mysql.log
