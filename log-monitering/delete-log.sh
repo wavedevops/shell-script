@@ -3,7 +3,7 @@
 source common.sh
 
 
-SOURCE_DIRECTORY=/tmp/app-logsdd
+SOURCE_DIRECTORY=/tmp/app-logs
 if [ -d $SOURCE_DIRECTORY ]
 then
   echo -e " $G source directory exists $N "
