@@ -3,12 +3,12 @@
 source common.sh
 
 
-SOURCE_DIRECTORY=/tmp/app-logs
+SOURCE_DIRECTORY=/tmp/app-logsdd
 if [ -d $SOURCE_DIRECTORY ]
 then
-  echo " $G source directory exists $N "
+  echo -e " $G source directory exists $N "
 else
-  echo "$R source directory doesn't exits $N "
+  echo -e "$R source directory doesn't exits $N "
   exit 1
 fi
 FILES=$( find "$SOURCE_DIRECTORY" -name '*.log' -mtime +14)
@@ -18,3 +18,11 @@ do
   echo deleting file $line
 #  rm -rf $line
 done <<< $FILES
+
+
+
+touch -d "2024-08-01 00:00:00" backend.log
+touch -d "2024-08-01 00:00:00" mysql.log
+touch -d "2024-08-01 00:00:00" prasad.log
+touch -d "2024-08-01 00:00:00" hari.log
+touch -d "2024-08-01 00:00:00" chandra.log
