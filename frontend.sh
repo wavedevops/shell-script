@@ -2,6 +2,8 @@
 
 source common.sh
 
+LOGFILE=/tmp/common.log
+
 dnf install nginx -y &>>$LOGFILE
 VALIDATE $? "install nginx"
 
