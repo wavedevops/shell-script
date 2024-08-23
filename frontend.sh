@@ -53,7 +53,7 @@ VALIDATE $? "Extracting frontend code"
 #VALIDATE $? "Copied expense conf"
 
 ## centos
-cp /home/root/shell-script/expense.conf /etc/nginx/default.d/expense.conf &>>$LOGFILE
+cp /root/shell-script/expense.conf /etc/nginx/default.d/expense.conf &>>$LOGFILE
 VALIDATE $? "Copied expense conf"
 
 systemctl enable nginx &>>$LOGFILE
