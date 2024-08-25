@@ -45,7 +45,7 @@ VALIDATE $? "daemon reload"
 dnf install mysql -y &>>$LOGFILE
 VALIDATE $? "install mysql client"
 
-mysql -h 172.31.89.12 -uroot -pExpenseApp@1 < /app/schema/backend.sql &>>$LOGFILE
+mysql -h mysql.chowdary.cloud -uroot -pExpenseApp@1 < /app/schema/backend.sql &>>$LOGFILE
 VALIDATE $? "send schema from mysql client"
 
 
