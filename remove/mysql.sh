@@ -41,75 +41,54 @@
 
 
 
-#LOGFILE=/var/log/mysql_remove.log
-#
-## Function to validate the execution of commands
-#VALIDATE() {
-#  if [ $1 -eq 0 ]; then
-#    echo "$2 - SUCCESS" &>>$LOGFILE
-#  else
-#    echo "$2 - FAILED" &>>$LOGFILE
-#    exit 1
-#  fi
-#}
-#
-## Stop MySQL service
-#systemctl stop mysqld &>>$LOGFILE
-#VALIDATE $? "Stopping MySQL Server"
-#
-## Disable MySQL service
-#systemctl disable mysqld &>>$LOGFILE
-#VALIDATE $? "Disabling MySQL Server"
-#
-## Remove MySQL packages
-#dnf remove mysql-server mysql -y &>>$LOGFILE
-#VALIDATE $? "Removing MySQL packages"
-#
-## Remove MySQL data directory
-#rm -rf /var/lib/mysql &>>$LOGFILE
-#VALIDATE $? "Removing MySQL data directory"
-#
-## Remove MySQL configuration files
-#rm -rf /etc/my.cnf /etc/mysql /etc/my.cnf.d /etc/mysql.d /etc/my.cnf.* &>>$LOGFILE
-#VALIDATE $? "Removing MySQL configuration files"
-#
-## Remove MySQL logs
-#rm -rf /var/log/mysql* &>>$LOGFILE
-#VALIDATE $? "Removing MySQL logs"
-#
-## Optionally, remove any MySQL user accounts created
-#userdel -r mysql &>>$LOGFILE
-#VALIDATE $? "Removing MySQL user account"
-#
-## Clean up dnf caches
-#dnf clean all &>>$LOGFILE
-#VALIDATE $? "Cleaning up DNF caches"
-#
-## Remove MySQL root password entry from the system
-## This is optional and only if you wish to remove any saved credentials
-#unset MYSQL_ROOT_PASSWORD &>>$LOGFILE
-#VALIDATE $? "Removing MySQL root password from the environment"
-#
-#echo "MySQL has been completely removed from the system." &>>$LOGFILE
+LOGFILE=/var/log/mysql_remove.log
 
+# Function to validate the execution of commands
+VALIDATE() {
+  if [ $1 -eq 0 ]; then
+    echo "$2 - SUCCESS" &>>$LOGFILE
+  else
+    echo "$2 - FAILED" &>>$LOGFILE
+    exit 1
+  fi
+}
 
 # Stop MySQL service
-systemctl stop mysqld
+systemctl stop mysqld &>>$LOGFILE
+VALIDATE $? "Stopping MySQL Server"
 
-# Start MySQL in safe mode, bypassing password authentication
-mysqld_safe --skip-grant-tables &
+# Disable MySQL service
+systemctl disable mysqld &>>$LOGFILE
+VALIDATE $? "Disabling MySQL Server"
 
-# Log in to MySQL as root without a password
-mysql -u root
+# Remove MySQL packages
+dnf remove mysql-server mysql -y &>>$LOGFILE
+VALIDATE $? "Removing MySQL packages"
 
-# Once logged in, reset the root password
-USE mysql;
-UPDATE user SET authentication_string=PASSWORD('ExpenseApp@1') WHERE User='root';
-FLUSH PRIVILEGES;
-EXIT;
+# Remove MySQL data directory
+rm -rf /var/lib/mysql &>>$LOGFILE
+VALIDATE $? "Removing MySQL data directory"
 
-# Stop the safe mode MySQL service
-killall mysqld_safe
+# Remove MySQL configuration files
+rm -rf /etc/my.cnf /etc/mysql /etc/my.cnf.d /etc/mysql.d /etc/my.cnf.* &>>$LOGFILE
+VALIDATE $? "Removing MySQL configuration files"
 
-# Restart MySQL service normally
-systemctl start mysqld
+# Remove MySQL logs
+rm -rf /var/log/mysql* &>>$LOGFILE
+VALIDATE $? "Removing MySQL logs"
+
+# Optionally, remove any MySQL user accounts created
+userdel -r mysql &>>$LOGFILE
+VALIDATE $? "Removing MySQL user account"
+
+# Clean up dnf caches
+dnf clean all &>>$LOGFILE
+VALIDATE $? "Cleaning up DNF caches"
+
+# Remove MySQL root password entry from the system
+# This is optional and only if you wish to remove any saved credentials
+unset MYSQL_ROOT_PASSWORD &>>$LOGFILE
+VALIDATE $? "Removing MySQL root password from the environment"
+
+echo "MySQL has been completely removed from the system." &>>$LOGFILE
+
