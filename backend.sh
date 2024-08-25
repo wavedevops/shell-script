@@ -35,8 +35,12 @@ VALIDATE $? "Extracted backend code"
 npm install &>>$LOGFILE
 VALIDATE $? "npm install"
 
-cp /home/ec2-user/shell-script/backend.service /etc/systemd/system/backend.service &>>$LOGFILE
+#cp /home/ec2-user/shell-script/backend.service /etc/systemd/system/backend.service &>>$LOGFILE
+#VALIDATE $? "copy from backend.service file"
+
+cp /home/centos/shell-script/backend.service /etc/systemd/system/backend.service &>>$LOGFILE
 VALIDATE $? "copy from backend.service file"
+
 
 systemctl daemon-reload &>>$LOGFILE
 VALIDATE $? "daemon reload"
